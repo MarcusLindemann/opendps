@@ -5,6 +5,7 @@
 *.map
 *.bin
 *.pyc
+*~
 fontwidth
 rgbtobgr565
 src/opendps/gfx/bgr565/*
