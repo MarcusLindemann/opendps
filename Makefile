@@ -25,7 +25,7 @@ ESPPROXY_DIR=./${ESPPROXY}
 # by the proxy build system.
 EOR=esp-open-rtos
 export EOR_ROOT=$(shell pwd)/../${EOR}
-EOR_SCM_REPOSITORY=https://github.com/kanflo/${ESP_RTOS_SDK}.git
+EOR_SCM_REPOSITORY=https://github.com/kanflo/${EOR}.git
 
 SUBDIRS+=${ESPPROXY_DIR}
 endif
@@ -45,11 +45,11 @@ ${SUBDIRS}:
 
 ${OPENDPS_DIR}:	${OPENCM3LIB_DIR}
 
-${ESP_PROXY_DIR}:	${EOR_ROOT}
+${ESPPROXY_DIR}:	${EOR_ROOT}
 
 ${EOR_ROOT}:
-	git clone $< $@  	\
-	cd $@			\
-	git submodule init	\
-	git submodule update	\
+	git clone ${EOR_SCM_REPOSITORY} $(@); \
+	cd $@; \
+	git submodule init; \
+	git submodule update; \
 	git checkout -b netif remotes/origin/sdk_system_get_netif
