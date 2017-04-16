@@ -13,3 +13,4 @@ protocol_test
 build/
 firmware/
 html/
+private_ssid_config.h
